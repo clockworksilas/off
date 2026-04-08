@@ -395,154 +395,65 @@
       overflow: hidden;
     }
 
-    .map-stage {
+    .intro-aerial {
       position: absolute;
       inset: 0;
       display: grid;
       place-items: center;
       z-index: 2;
-      animation: mapStageFade 4.8s ease forwards;
+      animation: aerialStageFade 4.4s ease forwards;
     }
 
-    .map-card {
+    .aerial-view {
       position: relative;
-      width: min(82vw, 1180px);
-      height: min(70vh, 760px);
-      border-radius: 18px;
-      overflow: hidden;
-      border: 10px solid rgba(20, 18, 14, 0.75);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
-      transform: scale(0.72);
-      animation: mapZoomIn 4.6s cubic-bezier(.2,.7,.2,1) forwards;
-      background: #111;
-    }
-
-    .map-card iframe {
       width: 100%;
       height: 100%;
-      border: 0;
-      filter: sepia(0.2) saturate(0.8) contrast(1.02);
-      transform: scale(1.1);
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(10, 14, 10, 0.12), rgba(10, 14, 10, 0.28)),
+        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.35);
+      animation: aerialZoomIn 4.2s cubic-bezier(.2,.7,.2,1) forwards;
     }
 
-    .map-vignette {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, transparent 38%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.5) 100%);
-      pointer-events: none;
-    }
-
-    .map-label {
-      position: absolute;
-      left: 50%;
-      bottom: 28px;
-      transform: translateX(-50%);
-      padding: 14px 22px;
-      background: rgba(17, 15, 12, 0.78);
-      color: #f4efe2;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 8px;
-      font-size: 1.12rem;
-      letter-spacing: 0.03em;
-      text-align: center;
-      min-width: min(86%, 760px);
-      backdrop-filter: blur(6px);
-    }
-
-    .location-pin {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 38px;
-      height: 38px;
-      transform: translate(-50%, -100%);
-      z-index: 3;
-      animation: pinPulse 1.3s ease-in-out 2;
-    }
-
-    .location-pin::before {
+    .aerial-view::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: #c74d3f;
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.28);
-    }
-
-    .location-pin::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 14px;
-      height: 14px;
-      transform: translate(-50%, -50%);
-      background: #f5efe2;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .tree-rush {
-      position: absolute;
-      inset: 0;
-      z-index: 4;
+      background:
+        radial-gradient(circle at center, rgba(255,245,220,0.05), rgba(0,0,0,0.18) 65%, rgba(0,0,0,0.5) 100%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 110px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 110px);
+      mix-blend-mode: screen;
       pointer-events: none;
     }
 
-    .tree-rush .rush {
+    .aerial-mist {
       position: absolute;
-      top: -4%;
-      bottom: -4%;
-      width: 22%;
-      background-repeat: no-repeat;
-      background-position: center bottom;
-      background-size: contain;
-      opacity: 0;
-      filter: drop-shadow(0 16px 24px rgba(0,0,0,0.35));
-      animation: treeSweep 2.2s ease forwards;
-      animation-delay: 2.4s;
+      inset: -10%;
+      background:
+        radial-gradient(circle at 30% 35%, rgba(255,255,255,0.10), transparent 22%),
+        radial-gradient(circle at 70% 45%, rgba(255,255,255,0.09), transparent 24%),
+        radial-gradient(circle at 48% 68%, rgba(255,255,255,0.08), transparent 18%);
+      filter: blur(16px);
+      opacity: 0.8;
+      animation: mistDrift 4.2s ease-in-out forwards;
     }
 
-    .tree-rush .left-a { left: -2%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 900'%3E%3Crect x='104' y='640' width='34' height='220' rx='8' fill='%23523824'/%3E%3Cpolygon points='120,60 18,270 70,270 0,430 72,430 16,590 224,590 168,430 240,430 170,270 222,270' fill='%23273620'/%3E%3Cpolygon points='120,20 40,200 82,200 28,340 82,340 38,480 202,480 158,340 212,340 158,200 200,200' fill='%23324528'/%3E%3Cpolygon points='120,110 58,250 90,250 48,360 90,360 54,455 186,455 150,360 192,360 150,250 182,250' fill='%23445f37'/%3E%3C/svg%3E"); }
-    .tree-rush .left-b { left: 11%; width: 16%; animation-delay: 2.55s; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 900'%3E%3Crect x='112' y='610' width='34' height='240' rx='8' fill='%23553a25'/%3E%3Ccircle cx='130' cy='380' r='120' fill='%232e4127'/%3E%3Ccircle cx='92' cy='270' r='92' fill='%233a522f'/%3E%3Ccircle cx='172' cy='285' r='88' fill='%233a522f'/%3E%3Ccircle cx='132' cy='205' r='76' fill='%234e6b41'/%3E%3Ccircle cx='70' cy='380' r='74' fill='%2335472c'/%3E%3Ccircle cx='190' cy='388' r='72' fill='%2335472c'/%3E%3C/svg%3E"); }
-    .tree-rush .right-a { right: -2%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 900'%3E%3Crect x='112' y='610' width='34' height='240' rx='8' fill='%23553a25'/%3E%3Ccircle cx='130' cy='380' r='120' fill='%232e4127'/%3E%3Ccircle cx='92' cy='270' r='92' fill='%233a522f'/%3E%3Ccircle cx='172' cy='285' r='88' fill='%233a522f'/%3E%3Ccircle cx='132' cy='205' r='76' fill='%234e6b41'/%3E%3Ccircle cx='70' cy='380' r='74' fill='%2335472c'/%3E%3Ccircle cx='190' cy='388' r='72' fill='%2335472c'/%3E%3C/svg%3E"); }
-    .tree-rush .right-b { right: 11%; width: 16%; animation-delay: 2.55s; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 900'%3E%3Crect x='104' y='640' width='34' height='220' rx='8' fill='%23523824'/%3E%3Cpolygon points='120,60 18,270 70,270 0,430 72,430 16,590 224,590 168,430 240,430 170,270 222,270' fill='%23273620'/%3E%3Cpolygon points='120,20 40,200 82,200 28,340 82,340 38,480 202,480 158,340 212,340 158,200 200,200' fill='%23324528'/%3E%3Cpolygon points='120,110 58,250 90,250 48,360 90,360 54,455 186,455 150,360 192,360 150,250 182,250' fill='%23445f37'/%3E%3C/svg%3E"); }
-
-    .intro-portal {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(255,244,212,0) 0%, rgba(255,244,212,0) 28%, rgba(10,14,10,0.12) 54%, rgba(10,14,10,0.7) 100%);
-      z-index: 5;
-      animation: portalOpen 2.1s ease forwards;
-      animation-delay: 2.7s;
-      opacity: 0;
+    @keyframes aerialZoomIn {
+      0% { transform: scale(1.35); }
+      100% { transform: scale(2.35); }
     }
 
-    @keyframes mapZoomIn {
-      0% { transform: scale(0.72); }
-      55% { transform: scale(1); }
-      100% { transform: scale(2.55); }
-    }
-
-    @keyframes mapStageFade {
-      0%, 82% { opacity: 1; }
+    @keyframes aerialStageFade {
+      0%, 84% { opacity: 1; }
       100% { opacity: 0; }
     }
 
-    @keyframes treeSweep {
-      0% { opacity: 0; transform: scale(0.75) translateY(20px); }
-      20% { opacity: 1; }
-      100% { opacity: 1; transform: scale(1.5) translateY(0); }
+    @keyframes mistDrift {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(16px) scale(1.06); }
     }
-
-    @keyframes portalOpen {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1.18); }
-    }
-
-    @keyframes pinPulse {
-      0%, 100% { transform: translate(-50%, -100%) scale(1); }
       50% { transform: translate(-50%, -100%) scale(1.12); }
     }
 
@@ -833,6 +744,28 @@
       border: 1px solid rgba(233,229,214,0.12);
       position: relative;
       overflow: hidden;
+      text-align: center;
+    }
+
+    .director-avatar {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(233,229,214,0.16);
+      background: rgba(255,255,255,0.04);
+      display: grid;
+      place-items: center;
+    }
+
+    .director-avatar svg {
+      width: 54px;
+      height: 54px;
+      opacity: 0.8;
+    }
+
+    .director-hidden {
+      display: none;
     }
 
     .director-card::before {
@@ -906,17 +839,9 @@
   <div id="intro" aria-hidden="true">
     <div class="sun-glow"></div>
     <div class="intro-cinematic">
-      <div class="map-stage">
-        <div class="map-card">
-          <iframe
-            src="https://www.google.com/maps?q=Offley%20Ley%20Farm%20Butterton%20Lane%20CW1%205UT&z=17&output=embed"
-            loading="eager"
-            referrerpolicy="no-referrer-when-downgrade"
-            aria-hidden="true">
-          </iframe>
-          <div class="map-vignette"></div>
-          <div class="location-pin"></div>
-          <div class="map-label">Offley Ley Farm · Butterton Lane · CW1 5UT</div>
+      <div class="intro-aerial">
+        <div class="aerial-view">
+          <div class="aerial-mist"></div>
         </div>
       </div>
 
@@ -932,7 +857,7 @@
 
     <div class="intro-title">
       <h1>Oakhanger Film Festival</h1>
-      <p>Follow the journey to the woodland screen.</p>
+      <p>From above the canopy, into the trees, and through to the woodland screen.</p>
     </div>
   </div>
 
@@ -1048,7 +973,7 @@
               <h2>Festival Programme</h2>
             </div>
 
-            <div class="programme-list">
+            <div class="programme-list festival-stored" style="display:none;">
               <div class="programme-item">
                 <div class="programme-no">1</div>
                 <div>
@@ -1143,6 +1068,9 @@
                 <div class="time">~13:00</div>
               </div>
             </div>
+            <div style="padding: 28px 10px 6px; text-align: center;">
+              <p style="font-size: 1.5rem; color: #fff1c9; margin: 0;">To be announced...</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1159,59 +1087,123 @@
           <div class="wood-divider"></div>
           <div class="director-grid">
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Bernadette McBride</h3>
-              <div class="film-title">Ollphéist Mhara (Sea Monster)</div>
-              <p>Ireland · 19:32</p>
-              <p>An Irish-language short exploring rising sea levels and environmental change through a deeply atmospheric cinematic lens.</p>
+              <div class="director-hidden">
+                <div class="film-title">Ollphéist Mhara (Sea Monster)</div>
+                <p>Ireland · 19:32</p>
+                <p>An Irish-language short exploring rising sea levels and environmental change through a deeply atmospheric cinematic lens.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Raphael Stäger</h3>
-              <div class="film-title">Tschäggättä</div>
-              <p>Switzerland · 12:14</p>
-              <p>A striking international short selected for its evocative atmosphere and distinctive sense of place.</p>
+              <div class="director-hidden">
+                <div class="film-title">Tschäggättä</div>
+                <p>Switzerland · 12:14</p>
+                <p>A striking international short selected for its evocative atmosphere and distinctive sense of place.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>James Slater</h3>
-              <div class="film-title">Look For The Diamonds</div>
-              <p>UK · 12:35</p>
-              <p>A UK short included in the programme for its storytelling energy and emotional texture.</p>
+              <div class="director-hidden">
+                <div class="film-title">Look For The Diamonds</div>
+                <p>UK · 12:35</p>
+                <p>A UK short included in the programme for its storytelling energy and emotional texture.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Pop Levi &amp; MRK</h3>
-              <div class="film-title">Cheapo Gnostic</div>
-              <p>Greece · 08:46</p>
-              <p>A concise and vivid piece bringing experimental spirit and international perspective to the line-up.</p>
+              <div class="director-hidden">
+                <div class="film-title">Cheapo Gnostic</div>
+                <p>Greece · 08:46</p>
+                <p>A concise and vivid piece bringing experimental spirit and international perspective to the line-up.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Saul Murphy</h3>
-              <div class="film-title">The Liverpool Olympia</div>
-              <p>UK · 17:49</p>
-              <p>A film rooted in place and cultural memory, connecting local identity with cinematic storytelling.</p>
+              <div class="director-hidden">
+                <div class="film-title">The Liverpool Olympia</div>
+                <p>UK · 17:49</p>
+                <p>A film rooted in place and cultural memory, connecting local identity with cinematic storytelling.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Venya Krutikov &amp; Pablo Sonnaillon</h3>
-              <div class="film-title">Crystallisation</div>
-              <p>International · 11:38</p>
-              <p>An international collaboration adding visual experimentation and contemporary resonance to the programme.</p>
+              <div class="director-hidden">
+                <div class="film-title">Crystallisation</div>
+                <p>International · 11:38</p>
+                <p>An international collaboration adding visual experimentation and contemporary resonance to the programme.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Christian Bull</h3>
-              <div class="film-title">Constant Parasite</div>
-              <p>UK · Runtime TBC</p>
-              <p>Included in the festival selection, with final runtime details still to be confirmed.</p>
+              <div class="director-hidden">
+                <div class="film-title">Constant Parasite</div>
+                <p>UK · Runtime TBC</p>
+                <p>Included in the festival selection, with final runtime details still to be confirmed.</p>
+              </div>
             </div>
 
             <div class="director-card">
+              <div class="director-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M4.5 19.5C5.8 16.4 8.5 15 12 15C15.5 15 18.2 16.4 19.5 19.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
               <h3>Silas</h3>
-              <div class="film-title">Xxx</div>
-              <p>UK · Runtime TBC</p>
-              <p>A forthcoming programme entry awaiting final title formatting and additional details.</p>
+              <div class="director-hidden">
+                <div class="film-title">Xxx</div>
+                <p>UK · Runtime TBC</p>
+                <p>A forthcoming programme entry awaiting final title formatting and additional details.</p>
+              </div>
             </div>
           </div>
         </div>
