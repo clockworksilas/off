@@ -60,8 +60,6 @@
       letter-spacing: 0.02em;
     }
 
-    
-
     p {
       line-height: 1.8;
       color: var(--muted);
@@ -77,7 +75,6 @@
       font: inherit;
     }
 
-    /* Intro cinematic */
     #intro {
       position: fixed;
       inset: 0;
@@ -92,8 +89,6 @@
 
     @keyframes introFade {
       0%, 68% { opacity: 1; visibility: visible; }
-      100% { opacity: 0; visibility: hidden; }
-    }
       100% { opacity: 0; visibility: hidden; }
     }
 
@@ -113,111 +108,6 @@
     @keyframes sunPulse {
       0%,100% { transform: translateX(-50%) scale(1); }
       50% { transform: translateX(-50%) scale(1.05); }
-    }
-
-    .forest-path {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-    }
-
-    .tree-lane {
-      position: absolute;
-      inset: 0;
-      animation: moveForward 2.8s ease-out forwards;
-      transform-origin: center center;
-    }
-
-    @keyframes moveForward {
-      0% { transform: scale(1.18); }
-      100% { transform: scale(1); }
-    }
-      100% { transform: scale(1); }
-    }
-      100% { transform: translateZ(220px) scale(0.95); }
-    }
-
-    .tree {
-      position: absolute;
-      bottom: -2%;
-      width: 180px;
-      height: 105%;
-      background-repeat: no-repeat;
-      background-position: bottom center;
-      background-size: contain;
-      opacity: 0.97;
-      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.28));
-    }
-
-    .tree::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.16));
-      mix-blend-mode: multiply;
-    }
-
-    .tree.pine {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 900'%3E%3Crect x='104' y='640' width='34' height='220' rx='8' fill='%23523824'/%3E%3Cpolygon points='120,60 18,270 70,270 0,430 72,430 16,590 224,590 168,430 240,430 170,270 222,270' fill='%23273620'/%3E%3Cpolygon points='120,20 40,200 82,200 28,340 82,340 38,480 202,480 158,340 212,340 158,200 200,200' fill='%23324528'/%3E%3Cpolygon points='120,110 58,250 90,250 48,360 90,360 54,455 186,455 150,360 192,360 150,250 182,250' fill='%23445f37'/%3E%3C/svg%3E");
-    }
-
-    .tree.round {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 900'%3E%3Crect x='112' y='610' width='34' height='240' rx='8' fill='%23553a25'/%3E%3Ccircle cx='130' cy='380' r='120' fill='%232e4127'/%3E%3Ccircle cx='92' cy='270' r='92' fill='%233a522f'/%3E%3Ccircle cx='172' cy='285' r='88' fill='%233a522f'/%3E%3Ccircle cx='132' cy='205' r='76' fill='%234e6b41'/%3E%3Ccircle cx='70' cy='380' r='74' fill='%2335472c'/%3E%3Ccircle cx='190' cy='388' r='72' fill='%2335472c'/%3E%3C/svg%3E");
-    }
-
-    .tree.left1 { left: -2%; width: 20%; z-index: 5; }
-    .tree.left2 { left: 8%; width: 14%; z-index: 4; transform: scale(0.92); }
-    .tree.left3 { left: 17%; width: 11%; z-index: 3; transform: scale(0.82); }
-    .tree.left4 { left: 24%; width: 9%; z-index: 2; transform: scale(0.74); }
-    .tree.right1 { right: -2%; width: 20%; z-index: 5; }
-    .tree.right2 { right: 8%; width: 14%; z-index: 4; transform: scale(0.92); }
-    .tree.right3 { right: 17%; width: 11%; z-index: 3; transform: scale(0.82); }
-    .tree.right4 { right: 24%; width: 9%; z-index: 2; transform: scale(0.74); }
-    .grass {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 26%;
-      background:
-        linear-gradient(180deg, rgba(48,58,35,0.08), rgba(8,14,9,0.98)),
-        url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      opacity: 0.92;
-      z-index: 6;
-    }
-
-    .bird {
-      position: absolute;
-      width: 30px;
-      height: 12px;
-      top: 22%;
-      left: -5%;
-      animation: flyAcross 5.5s linear infinite;
-      opacity: 0.5;
-      opacity: 0.65;
-    }
-
-    .bird::before,
-    .bird::after {
-      content: "";
-      position: absolute;
-      width: 16px;
-      height: 10px;
-      border-top: 2px solid rgba(255,255,255,0.85);
-      border-radius: 50% 50% 0 0;
-    }
-
-    .bird::before { left: 0; transform: rotate(8deg); }
-    .bird::after { right: 0; transform: scaleX(-1) rotate(8deg); }
-
-    .bird.b2 { top: 17%; animation-delay: 1.7s; transform: scale(0.85); }
-    .bird.b3 { top: 27%; animation-delay: 3.4s; transform: scale(1.1); }
-
-    @keyframes flyAcross {
-      0% { left: -10%; transform: translateY(0) scale(1); }
-      25% { transform: translateY(-6px) scale(1.05); }
-      50% { transform: translateY(2px) scale(0.98); }
-      100% { left: 110%; transform: translateY(-4px) scale(1); }
     }
 
     .intro-title {
@@ -242,7 +132,6 @@
       font-size: clamp(1rem, 2vw, 1.2rem);
     }
 
-    /* Main site */
     .site-shell {
       position: relative;
       min-height: 100vh;
@@ -389,74 +278,6 @@
       display: block;
     }
 
-    .intro-cinematic {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-    }
-
-    .intro-aerial {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      z-index: 2;
-      animation: aerialStageFade 4.4s ease forwards;
-    }
-
-    .aerial-view {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background:
-        linear-gradient(rgba(10, 14, 10, 0.12), rgba(10, 14, 10, 0.28)),
-        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
-      transform: scale(1.35);
-      animation: aerialZoomIn 4.2s cubic-bezier(.2,.7,.2,1) forwards;
-    }
-
-    .aerial-view::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at center, rgba(255,245,220,0.05), rgba(0,0,0,0.18) 65%, rgba(0,0,0,0.5) 100%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 110px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 110px);
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .aerial-mist {
-      position: absolute;
-      inset: -10%;
-      background:
-        radial-gradient(circle at 30% 35%, rgba(255,255,255,0.10), transparent 22%),
-        radial-gradient(circle at 70% 45%, rgba(255,255,255,0.09), transparent 24%),
-        radial-gradient(circle at 48% 68%, rgba(255,255,255,0.08), transparent 18%);
-      filter: blur(16px);
-      opacity: 0.8;
-      animation: mistDrift 4.2s ease-in-out forwards;
-    }
-
-    @keyframes aerialZoomIn {
-      0% { transform: scale(1.35); }
-      100% { transform: scale(2.35); }
-    }
-
-    @keyframes aerialStageFade {
-      0%, 84% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-
-    @keyframes mistDrift {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(16px) scale(1.06); }
-    }
-      50% { transform: translate(-50%, -100%) scale(1.12); }
-    }
-
     .hero p.lead {
       font-size: 1.08rem;
       max-width: 720px;
@@ -553,9 +374,6 @@
         url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
     }
 
-    
-    
-    
     nav.tabs {
       position: sticky;
       top: 0;
@@ -747,6 +565,20 @@
       text-align: center;
     }
 
+    .director-card.clickable {
+      cursor: pointer;
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .director-card.clickable:hover,
+    .director-card.clickable:focus-visible {
+      transform: translateY(-4px);
+      border-color: rgba(215, 177, 106, 0.45);
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.24);
+      outline: none;
+    }
+
     .director-avatar {
       width: 96px;
       height: 96px;
@@ -791,6 +623,108 @@
       font-size: 1.16rem;
     }
 
+    .director-detail-panel {
+      margin-top: 28px;
+      display: none;
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(27,34,23,0.96), rgba(18,22,16,0.94));
+      border: 1px solid rgba(215,177,106,0.2);
+      box-shadow: var(--shadow);
+      animation: fadeUp 0.5s ease;
+    }
+
+    .director-detail-panel.active {
+      display: block;
+    }
+
+    .detail-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 26px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(233,229,214,0.12);
+    }
+
+    .detail-panel-header h3 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .detail-close-btn {
+      border: 1px solid rgba(233,229,214,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #f2efe5;
+      border-radius: 4px;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .detail-close-btn:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+
+    .detail-panel-body {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+    }
+
+    .info-text-box {
+      padding: 26px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(233,229,214,0.1);
+    }
+
+    .info-text-box h4,
+    .video-panel h4 {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      color: #fff1c9;
+    }
+
+    .film-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .film-meta .tag {
+      margin-top: 0;
+    }
+
+    .video-panel {
+      padding: 26px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(233,229,214,0.1);
+    }
+
+    .video-embed {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(233,229,214,0.12);
+    }
+
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     .contact-list {
       display: grid;
       gap: 18px;
@@ -832,29 +766,16 @@
       .tab-btn {
         min-width: 150px;
       }
+
+      .detail-panel-body {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <div id="intro" aria-hidden="true">
     <div class="sun-glow"></div>
-    <div class="intro-cinematic">
-      <div class="intro-aerial">
-        <div class="aerial-view">
-          <div class="aerial-mist"></div>
-        </div>
-      </div>
-
-      <div class="tree-rush">
-        <div class="rush left-a"></div>
-        <div class="rush left-b"></div>
-        <div class="rush right-a"></div>
-        <div class="rush right-b"></div>
-      </div>
-
-      <div class="intro-portal"></div>
-    </div>
-
     <div class="intro-title">
       <h1>Oakhanger Film Festival</h1>
       <p>From above the canopy, into the trees, and through to the woodland screen.</p>
@@ -912,7 +833,6 @@
             <div class="scene-ground">
               <div class="scene-hill"></div>
             </div>
-          </div>
           </div>
         </div>
         <div class="hero-wood"></div>
@@ -972,102 +892,6 @@
               <div class="leaf-icon">🎬</div>
               <h2>Festival Programme</h2>
             </div>
-
-            <div class="programme-list festival-stored" style="display:none;">
-              <div class="programme-item">
-                <div class="programme-no">1</div>
-                <div>
-                  <h4>Ollphéist Mhara (Sea Monster)</h4>
-                  <p>Directed by Bernadette McBride · Ireland</p>
-                </div>
-                <div class="time">19:32</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">2</div>
-                <div>
-                  <h4>Tschäggättä</h4>
-                  <p>Directed by Raphael Stäger · Switzerland</p>
-                </div>
-                <div class="time">12:14</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">3</div>
-                <div>
-                  <h4>Look For The Diamonds</h4>
-                  <p>Directed by James Slater · UK</p>
-                </div>
-                <div class="time">12:35</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">4</div>
-                <div>
-                  <h4>Cheapo Gnostic</h4>
-                  <p>Directed by Pop Levi &amp; MRK · Greece</p>
-                </div>
-                <div class="time">08:46</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">5</div>
-                <div>
-                  <h4>The Liverpool Olympia</h4>
-                  <p>Directed by Saul Murphy · UK</p>
-                </div>
-                <div class="time">17:49</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">6</div>
-                <div>
-                  <h4>Crystallisation</h4>
-                  <p>Directed by Venya Krutikov and Pablo Sonnaillon · International</p>
-                </div>
-                <div class="time">11:38</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">7</div>
-                <div>
-                  <h4>Constant Parasite</h4>
-                  <p>Directed by Christian Bull · UK</p>
-                  <span class="tag">Runtime to be confirmed</span>
-                </div>
-                <div class="time">TBC</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">8</div>
-                <div>
-                  <h4>Xxx</h4>
-                  <p>Directed by Silas · UK</p>
-                  <span class="tag">Further details coming soon</span>
-                </div>
-                <div class="time">TBC</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">9</div>
-                <div>
-                  <h4>Smithdown Micro Shorts / Simon Documentary Slot</h4>
-                  <p>Additional programming slot under development, potentially featuring Smithdown micro shorts and documentary work.</p>
-                  <span class="tag">In development</span>
-                </div>
-                <div class="time">TBC</div>
-              </div>
-
-              <div class="programme-item">
-                <div class="programme-no">10</div>
-                <div>
-                  <h4>Refugee Film — Guest Slot</h4>
-                  <p>Pending confirmation. Expected running time approximately 13 minutes.</p>
-                  <span class="tag">Awaiting confirmation</span>
-                </div>
-                <div class="time">~13:00</div>
-              </div>
-            </div>
             <div style="padding: 28px 10px 6px; text-align: center;">
               <p style="font-size: 1.5rem; color: #fff1c9; margin: 0;">To be announced...</p>
             </div>
@@ -1086,7 +910,7 @@
           </p>
           <div class="wood-divider"></div>
           <div class="director-grid">
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="bernadette-mcbride">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1094,11 +918,8 @@
                 </svg>
               </div>
               <h3>Bernadette McBride</h3>
-              <div class="director-hidden">
-                <div class="film-title">Ollphéist Mhara (Sea Monster)</div>
-                <p>Ireland · 19:32</p>
-                <p>An Irish-language short exploring rising sea levels and environmental change through a deeply atmospheric cinematic lens.</p>
-              </div>
+              <div class="film-title">Ollphéist Mhara (Sea Monster)</div>
+              <p>Click to view film information and trailer.</p>
             </div>
 
             <div class="director-card">
@@ -1206,6 +1027,49 @@
               </div>
             </div>
           </div>
+
+          <div id="director-detail-panel" class="director-detail-panel" aria-live="polite">
+            <div class="detail-panel-header">
+              <h3 id="detail-title">Bernadette McBride</h3>
+              <button class="detail-close-btn" id="detail-close-btn" type="button">Close</button>
+            </div>
+            <div class="detail-panel-body">
+              <div class="info-text-box">
+                <h4>Film Information</h4>
+                <div class="film-meta">
+                  <span class="tag">Irish-language short film</span>
+                  <span class="tag">Aran Islands, Ireland</span>
+                  <span class="tag">Climate & memory</span>
+                  <span class="tag">10 festival selections</span>
+                </div>
+                <p><strong>Film Synopsis:</strong></p>
+                <p>
+                  <em>Sea Monster (Ollphéist Mhara)</em> is a haunting Irish-language short film written and directed by Bernadette McBride, adapted from her short story. Set on the Aran Islands, Ireland, the film follows Nora (Frances McManus) — a retired forensic ecologist whose fading memory may hold the key to solving a forgotten environmental crime responsible for climate change — but is it too late?
+                </p>
+                <p>
+                  Translated and narrated by Inis Oírr novelist Máire Uí Dhufaigh, <em>Sea Monster (Ollphéist Mhara)</em> explores connections between the erosion of memory, language, and landscape.
+                </p>
+                <p>
+                  <em>Sea Monster (Ollphéist Mhara)</em> has been selected for ten international film festivals and screenings since its festival run started in the summer of 2025.
+                </p>
+              </div>
+
+              <div class="video-panel">
+                <h4>Watch the Trailer</h4>
+                <div class="video-embed">
+                  <iframe
+                    src="https://drive.google.com/file/d/1K7q7rAfKSEQ66Ld2K_zkWWBA_rOWr-4N/preview"
+                    title="Sea Monster trailer"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <p style="margin-top: 14px; font-size: 1rem; color: #d8d2c1;">
+                  Trailer for <em>Sea Monster (Ollphéist Mhara)</em>.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1275,29 +1139,65 @@
     const buttons = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.tab-panel');
 
+    function activateTab(target) {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      panels.forEach(panel => panel.classList.remove('active'));
+
+      const activeButton = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+      const activePanel = document.getElementById(target);
+
+      if (activeButton && activePanel) {
+        activeButton.classList.add('active');
+        activePanel.classList.add('active');
+      }
+    }
+
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const target = button.dataset.tab;
-
-        buttons.forEach(btn => btn.classList.remove('active'));
-        panels.forEach(panel => panel.classList.remove('active'));
-
-        button.classList.add('active');
-        document.getElementById(target).classList.add('active');
+        activateTab(target);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
 
-    // Allow hash-based opening, e.g. #directors or #contact
+    const detailPanel = document.getElementById('director-detail-panel');
+    const detailCloseBtn = document.getElementById('detail-close-btn');
+    const bernadetteCard = document.querySelector('.director-card[data-director="bernadette-mcbride"]');
+
+    function openBernadettePanel() {
+      activateTab('directors');
+      detailPanel.classList.add('active');
+      bernadetteCard.setAttribute('aria-expanded', 'true');
+      setTimeout(() => {
+        detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function closeBernadettePanel() {
+      detailPanel.classList.remove('active');
+      bernadetteCard.setAttribute('aria-expanded', 'false');
+    }
+
+    if (bernadetteCard) {
+      bernadetteCard.addEventListener('click', openBernadettePanel);
+      bernadetteCard.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openBernadettePanel();
+        }
+      });
+    }
+
+    if (detailCloseBtn) {
+      detailCloseBtn.addEventListener('click', closeBernadettePanel);
+    }
+
     const hash = window.location.hash.replace('#', '');
     if (hash) {
-      const matchingButton = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
-      const matchingPanel = document.getElementById(hash);
-      if (matchingButton && matchingPanel) {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        panels.forEach(panel => panel.classList.remove('active'));
-        matchingButton.classList.add('active');
-        matchingPanel.classList.add('active');
+      if (hash === 'bernadette-mcbride') {
+        openBernadettePanel();
+      } else {
+        activateTab(hash);
       }
     }
   </script>
