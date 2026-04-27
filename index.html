@@ -688,8 +688,6 @@
       opacity: 0.9;
     }
 
-    .director-hidden { display: none; }
-
     .director-card::before {
       content: "";
       position: absolute;
@@ -760,6 +758,10 @@
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       gap: 28px;
+    }
+
+    .detail-panel-body.single-column {
+      grid-template-columns: 1fr;
     }
 
     .info-text-box,
@@ -977,9 +979,9 @@
 
       <nav class="tabs" aria-label="Festival site sections">
         <div class="tab-bar">
-          <button class="tab-btn active" data-tab="home">Main Page</button>
-          <button class="tab-btn" data-tab="directors">Directors &amp; Films</button>
-          <button class="tab-btn" data-tab="contact">Contact</button>
+          <button class="tab-btn active" data-tab="home" type="button">Main Page</button>
+          <button class="tab-btn" data-tab="directors" type="button">Directors &amp; Films</button>
+          <button class="tab-btn" data-tab="contact" type="button">Contact</button>
         </div>
       </nav>
 
@@ -991,7 +993,7 @@
               <h2>About the Festival</h2>
             </div>
             <p>
-              Oakhanger Film Festival is a curated outdoor gathering celebrating independent short films, live music, and spoken word set amongst the trees. The unique magic of watching films together beneath the open night sky, under the stars, in a woodland clearing
+              Oakhanger Film Festival is a curated outdoor gathering celebrating independent short films, live music, and spoken word set amongst the trees. The unique magic of watching films together beneath the open night sky, under the stars, in a woodland clearing.
             </p>
             <p class="quote">
               “Growing up on Great Barrier Island in New Zealand, I experienced community gatherings surrounded by some of the most breathtaking natural landscapes in the world. Years later, after moving to Liverpool in the UK, I found myself immersed in a vibrant and fast-growing arts scene that deeply influenced my creative outlook.
@@ -1029,9 +1031,6 @@
               <div class="leaf-icon">📸</div>
               <h2>Festival Atmosphere</h2>
             </div>
-            <p>
-              
-            </p>
             <div class="image-strip">
               <div class="photo-card">
                 <img src="https://8upload.com//image/ef307a68d754601f/WhatsApp_Image_2026-04-19_at_21.57.08.jpeg" alt="Wildflowers and woodland scene">
@@ -1097,7 +1096,7 @@
               <p>Click to view film information and trailer.</p>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="raphael-stager">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1105,11 +1104,8 @@
                 </svg>
               </div>
               <h3>Raphael Stäger</h3>
-              <div class="director-hidden">
-                <div class="film-title">Tschäggättä</div>
-                <p>Switzerland · 12:14</p>
-                <p>A striking international short selected for its evocative atmosphere and distinctive sense of place.</p>
-              </div>
+              <div class="film-title">Tschäggättä</div>
+              <p>Click to view film information.</p>
             </div>
 
             <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="james-slater">
@@ -1124,7 +1120,7 @@
               <p>Click to view film information and director profile.</p>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="pop-levi-mrk">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1132,14 +1128,11 @@
                 </svg>
               </div>
               <h3>Pop Levi &amp; MRK</h3>
-              <div class="director-hidden">
-                <div class="film-title">Cheapo Gnostic</div>
-                <p>Greece · 08:46</p>
-                <p>A concise and vivid piece bringing experimental spirit and international perspective to the line-up.</p>
-              </div>
+              <div class="film-title">Cheapo Gnostic</div>
+              <p>Click to view film information.</p>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="saul-murphy">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1147,14 +1140,11 @@
                 </svg>
               </div>
               <h3>Saul Murphy</h3>
-              <div class="director-hidden">
-                <div class="film-title">The Liverpool Olympia</div>
-                <p>UK · 17:49</p>
-                <p>A film rooted in place and cultural memory, connecting local identity with cinematic storytelling.</p>
-              </div>
+              <div class="film-title">The Liverpool Olympia</div>
+              <p>Click to view film information.</p>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="venya-krutikov-pablo-sonnaillon">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1162,14 +1152,11 @@
                 </svg>
               </div>
               <h3>Venya Krutikov &amp; Pablo Sonnaillon</h3>
-              <div class="director-hidden">
-                <div class="film-title">Crystallisation</div>
-                <p>International · 11:38</p>
-                <p>An international collaboration adding visual experimentation and contemporary resonance to the programme.</p>
-              </div>
+              <div class="film-title">Crystallisation</div>
+              <p>Click to view film information.</p>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="christian-bull">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1177,14 +1164,11 @@
                 </svg>
               </div>
               <h3>Christian Bull</h3>
-              <div class="director-hidden">
-                <div class="film-title">Constant Parasite</div>
-                <p>UK · Runtime TBC</p>
-                <p>Included in the festival selection, with final runtime details still to be confirmed.</p>
-              </div>
+              <div class="film-title">Constant Parasite</div>
+              <p>Click to view film information.</p>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="silas">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1192,11 +1176,8 @@
                 </svg>
               </div>
               <h3>Silas</h3>
-              <div class="director-hidden">
-                <div class="film-title">Xxx</div>
-                <p>UK · Runtime TBC</p>
-                <p>A forthcoming programme entry awaiting final title formatting and additional details.</p>
-              </div>
+              <div class="film-title">Xxx</div>
+              <p>Click to view film information.</p>
             </div>
           </div>
 
@@ -1205,42 +1186,7 @@
               <h3 id="detail-title">Bernadette McBride</h3>
               <button class="detail-close-btn" id="detail-close-btn" type="button">Close</button>
             </div>
-            <div class="detail-panel-body">
-              <div class="info-text-box">
-                <h4>Film Information</h4>
-                <div class="film-meta">
-                  <span class="tag">Irish-language short film</span>
-                  <span class="tag">Aran Islands, Ireland</span>
-                  <span class="tag">Climate &amp; memory</span>
-                  <span class="tag">10 festival selections</span>
-                </div>
-                <p><strong>Film Synopsis:</strong></p>
-                <p>
-                  <em>Sea Monster (Ollphéist Mhara)</em> is a haunting Irish-language short film written and directed by Bernadette McBride, adapted from her short story. Set on the Aran Islands, Ireland, the film follows Nora (Frances McManus) — a retired forensic ecologist whose fading memory may hold the key to solving a forgotten environmental crime responsible for climate change — but is it too late?
-                </p>
-                <p>
-                  Translated and narrated by Inis Oírr novelist Máire Uí Dhufaigh, <em>Sea Monster (Ollphéist Mhara)</em> explores connections between the erosion of memory, language, and landscape.
-                </p>
-                <p>
-                  <em>Sea Monster (Ollphéist Mhara)</em> has been selected for ten international film festivals and screenings since its festival run started in the summer of 2025.
-                </p>
-              </div>
-
-              <div class="video-panel">
-                <h4>Watch the Trailer</h4>
-                <div class="video-embed">
-                  <iframe
-                    src="https://drive.google.com/file/d/1K7q7rAfKSEQ66Ld2K_zkWWBA_rOWr-4N/preview"
-                    title="Sea Monster trailer"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen>
-                  </iframe>
-                </div>
-                <p style="margin-top: 14px; font-size: 1rem; color: #e6fff7;">
-                  Trailer for <em>Sea Monster (Ollphéist Mhara)</em>.
-                </p>
-              </div>
-            </div>
+            <div class="detail-panel-body"></div>
           </div>
         </div>
       </section>
@@ -1280,13 +1226,11 @@
             <p>
               Oakhanger Film Festival is designed as a one-day-and-night woodland experience, with overnight camping available for guests who wish to stay under the stars.
             </p>
-            <p>
-              Contacts:
-            </p>
+            <p>Contacts:</p>
             <div class="contact-list">
               <div class="contact-item">
                 <strong>Email</strong>
-                <p>teatabrowne@gmail.com</p>
+                <p><a href="mailto:teatabrowne@gmail.com">teatabrowne@gmail.com</a></p>
               </div>
               <div class="contact-item">
                 <strong>Instagram</strong>
@@ -1294,7 +1238,7 @@
               </div>
               <div class="contact-item">
                 <strong>Tickets / Booking</strong>
-                <p>https://www.tickettailor.com/events/offleyoutdoorfilmfestival/2131304</p>
+                <p><a href="https://www.tickettailor.com/events/offleyoutdoorfilmfestival/2131304" target="_blank" rel="noopener noreferrer">TicketTailor booking page</a></p>
               </div>
             </div>
           </div>
@@ -1308,185 +1252,315 @@
   </div>
 
   <script>
-  const buttons = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.tab-panel');
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
 
-  function activateTab(target) {
-    buttons.forEach(btn => btn.classList.remove('active'));
-    panels.forEach(panel => panel.classList.remove('active'));
+    function activateTab(target) {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      panels.forEach(panel => panel.classList.remove('active'));
 
-    const activeButton = document.querySelector(`.tab-btn[data-tab="${target}"]`);
-    const activePanel = document.getElementById(target);
+      const activeButton = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+      const activePanel = document.getElementById(target);
 
-    if (activeButton && activePanel) {
-      activeButton.classList.add('active');
-      activePanel.classList.add('active');
-    }
-  }
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.tab;
-      activateTab(target);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  const detailPanel = document.getElementById('director-detail-panel');
-  const detailCloseBtn = document.getElementById('detail-close-btn');
-  const detailTitle = document.getElementById('detail-title');
-  const detailBody = document.querySelector('.detail-panel-body');
-
-  const directorProfiles = {
-    'bernadette-mcbride': {
-      title: 'Bernadette McBride',
-      body: `
-        <div class="info-text-box">
-          <h4>Film Information</h4>
-          <div class="film-meta">
-            <span class="tag">Irish-language short film</span>
-            <span class="tag">Aran Islands, Ireland</span>
-            <span class="tag">Climate &amp; memory</span>
-            <span class="tag">10 festival selections</span>
-          </div>
-          <p><strong>Film Synopsis:</strong></p>
-          <p>
-            <em>Sea Monster (Ollphéist Mhara)</em> is a haunting Irish-language short film written and directed by Bernadette McBride, adapted from her short story. Set on the Aran Islands, Ireland, the film follows Nora (Frances McManus) — a retired forensic ecologist whose fading memory may hold the key to solving a forgotten environmental crime responsible for climate change — but is it too late?
-          </p>
-          <p>
-            Translated and narrated by Inis Oírr novelist Máire Uí Dhufaigh, <em>Sea Monster (Ollphéist Mhara)</em> explores connections between the erosion of memory, language, and landscape.
-          </p>
-          <p>
-            <em>Sea Monster (Ollphéist Mhara)</em> has been selected for ten international film festivals and screenings since its festival run started in the summer of 2025.
-          </p>
-        </div>
-
-        <div class="video-panel">
-          <h4>Watch the Trailer</h4>
-          <div class="video-embed">
-            <iframe
-              src="https://drive.google.com/file/d/1K7q7rAfKSEQ66Ld2K_zkWWBA_rOWr-4N/preview"
-              title="Sea Monster trailer"
-              allow="autoplay; fullscreen"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <p style="margin-top: 14px; font-size: 1rem; color: #e6fff7;">
-            Trailer for <em>Sea Monster (Ollphéist Mhara)</em>.
-          </p>
-        </div>
-      `
-    },
-
-    'james-slater': {
-  title: 'James Slater',
-  body: `
-    <div class="info-text-box">
-      <h4>Film Information</h4>
-      <div class="film-meta">
-        <span class="tag">UK short film</span>
-        <span class="tag">12:35</span>
-        <span class="tag">Documentary</span>
-        <span class="tag">Resilience &amp; survival</span>
-      </div>
-
-      <p><strong>Film Title:</strong></p>
-      <p><em>Look For The Diamonds</em></p>
-
-      <p><strong>Film Synopsis:</strong></p>
-      <p>
-        Joel Goldberg has 4 kidneys but none of them work. He has to dialyse every day to survive. With an inspirational outlook on life, <em>Look For The Diamonds</em> shows that despite his chronic condition, Joel isn’t just surviving, he’s thriving.
-      </p>
-
-      <p><strong>Director Bio:</strong></p>
-      <p>
-        I’m James. Born in Bradford and now living in London via the fine cities of Liverpool and Berlin.
-      </p>
-      <p>
-        After an unsuccessful stint as a pizza waiter, I turned to directing out of desperation, starting with music videos for bands in the Liverpool music scene alongside my mini-DV-wielding sidekick, Neil. Our breakthrough came with The Coral, directing videos like <em>In The Morning</em> and <em>Pass It On</em>, among others.
-      </p>
-      <p>
-        Since then, I’ve built a career directing music videos, commercials, and documentaries in both the UK and Germany, where I lived for several years. My work has earned industry recognition, including Vimeo Staff Picks, NME’s Video of the Year for Jamie T’s <em>Zombie</em>, Raindance Video of the Year for Stealing Sheep’s <em>Not Real</em>, as well as numerous nominations for Brit Awards and UKMVAs, and several festival prizes.
-      </p>
-      <p>
-        In 2022, I founded Zomdic Films, focusing primarily on documentary, narrative, and commercial filmmaking. Most recently, I directed <em>Dreaming of You</em>, a feature documentary that serves as a coming-of-age story centered on The Coral.
-      </p>
-    </div>
-
-    <div class="video-panel">
-      <h4>Watch the Film</h4>
-      <div class="video-embed">
-        <iframe
-          src="https://player.vimeo.com/video/702853195"
-          title="Look For The Diamonds film"
-          allow="autoplay; fullscreen"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <p style="margin-top: 14px; font-size: 1rem; color: #e6fff7;">
-        <em>Look For The Diamonds</em> by James Slater.
-      </p>
-    </div>
-  `
-}
-    }
-  };
-
-  function openDirectorPanel(directorKey) {
-    const profile = directorProfiles[directorKey];
-    const card = document.querySelector(`.director-card[data-director="${directorKey}"]`);
-
-    if (!profile || !card || !detailPanel || !detailTitle || !detailBody) return;
-
-    activateTab('directors');
-
-    document.querySelectorAll('.director-card[aria-expanded]').forEach(item => {
-      item.setAttribute('aria-expanded', 'false');
-    });
-
-    detailTitle.textContent = profile.title;
-    detailBody.innerHTML = profile.body;
-    detailPanel.classList.add('active');
-    card.setAttribute('aria-expanded', 'true');
-
-    setTimeout(() => {
-      detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  }
-
-  function closeDirectorPanel() {
-    detailPanel.classList.remove('active');
-
-    document.querySelectorAll('.director-card[aria-expanded]').forEach(item => {
-      item.setAttribute('aria-expanded', 'false');
-    });
-  }
-
-  document.querySelectorAll('.director-card.clickable[data-director]').forEach(card => {
-    card.addEventListener('click', () => {
-      openDirectorPanel(card.dataset.director);
-    });
-
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openDirectorPanel(card.dataset.director);
+      if (activeButton && activePanel) {
+        activeButton.classList.add('active');
+        activePanel.classList.add('active');
       }
-    });
-  });
-
-  if (detailCloseBtn) {
-    detailCloseBtn.addEventListener('click', closeDirectorPanel);
-  }
-
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    if (directorProfiles[hash]) {
-      openDirectorPanel(hash);
-    } else {
-      activateTab(hash);
     }
-  }
-</script>
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.tab;
+        activateTab(target);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    const detailPanel = document.getElementById('director-detail-panel');
+    const detailCloseBtn = document.getElementById('detail-close-btn');
+    const detailTitle = document.getElementById('detail-title');
+    const detailBody = document.querySelector('.detail-panel-body');
+
+    const directorProfiles = {
+      'bernadette-mcbride': {
+        title: 'Bernadette McBride',
+        layout: 'two-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">Irish-language short film</span>
+              <span class="tag">Aran Islands, Ireland</span>
+              <span class="tag">Climate &amp; memory</span>
+              <span class="tag">10 festival selections</span>
+            </div>
+            <p><strong>Film Synopsis:</strong></p>
+            <p>
+              <em>Sea Monster (Ollphéist Mhara)</em> is a haunting Irish-language short film written and directed by Bernadette McBride, adapted from her short story. Set on the Aran Islands, Ireland, the film follows Nora (Frances McManus) — a retired forensic ecologist whose fading memory may hold the key to solving a forgotten environmental crime responsible for climate change — but is it too late?
+            </p>
+            <p>
+              Translated and narrated by Inis Oírr novelist Máire Uí Dhufaigh, <em>Sea Monster (Ollphéist Mhara)</em> explores connections between the erosion of memory, language, and landscape.
+            </p>
+            <p>
+              <em>Sea Monster (Ollphéist Mhara)</em> has been selected for ten international film festivals and screenings since its festival run started in the summer of 2025.
+            </p>
+          </div>
+
+          <div class="video-panel">
+            <h4>Watch the Trailer</h4>
+            <div class="video-embed">
+              <iframe
+                src="https://drive.google.com/file/d/1K7q7rAfKSEQ66Ld2K_zkWWBA_rOWr-4N/preview"
+                title="Sea Monster trailer"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p style="margin-top: 14px; font-size: 1rem; color: #e6fff7;">
+              Trailer for <em>Sea Monster (Ollphéist Mhara)</em>.
+            </p>
+          </div>
+        `
+      },
+
+      'raphael-stager': {
+        title: 'Raphael Stäger',
+        layout: 'single-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">Switzerland</span>
+              <span class="tag">12:14</span>
+              <span class="tag">International short</span>
+              <span class="tag">Atmospheric cinema</span>
+            </div>
+            <p><strong>Film Title:</strong></p>
+            <p><em>Tschäggättä</em></p>
+            <p>
+              A striking international short selected for its evocative atmosphere and distinctive sense of place.
+            </p>
+          </div>
+        `
+      },
+
+      'james-slater': {
+        title: 'James Slater',
+        layout: 'two-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">UK short film</span>
+              <span class="tag">12:35</span>
+              <span class="tag">Documentary</span>
+              <span class="tag">Resilience &amp; survival</span>
+            </div>
+
+            <p><strong>Film Title:</strong></p>
+            <p><em>Look For The Diamonds</em></p>
+
+            <p><strong>Film Synopsis:</strong></p>
+            <p>
+              Joel Goldberg has 4 kidneys but none of them work. He has to dialyse every day to survive. With an inspirational outlook on life, <em>Look For The Diamonds</em> shows that despite his chronic condition, Joel isn’t just surviving, he’s thriving.
+            </p>
+
+            <p><strong>Director Bio:</strong></p>
+            <p>
+              I’m James. Born in Bradford and now living in London via the fine cities of Liverpool and Berlin.
+            </p>
+            <p>
+              After an unsuccessful stint as a pizza waiter, I turned to directing out of desperation, starting with music videos for bands in the Liverpool music scene alongside my mini-DV-wielding sidekick, Neil. Our breakthrough came with The Coral, directing videos like <em>In The Morning</em> and <em>Pass It On</em>, among others.
+            </p>
+            <p>
+              Since then, I’ve built a career directing music videos, commercials, and documentaries in both the UK and Germany, where I lived for several years. My work has earned industry recognition, including Vimeo Staff Picks, NME’s Video of the Year for Jamie T’s <em>Zombie</em>, Raindance Video of the Year for Stealing Sheep’s <em>Not Real</em>, as well as numerous nominations for Brit Awards and UKMVAs, and several festival prizes.
+            </p>
+            <p>
+              In 2022, I founded Zomdic Films, focusing primarily on documentary, narrative, and commercial filmmaking. Most recently, I directed <em>Dreaming of You</em>, a feature documentary that serves as a coming-of-age story centered on The Coral.
+            </p>
+          </div>
+
+          <div class="video-panel">
+            <h4>Watch the Film</h4>
+            <div class="video-embed">
+              <iframe
+                src="https://player.vimeo.com/video/702853195"
+                title="Look For The Diamonds film"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p style="margin-top: 14px; font-size: 1rem; color: #e6fff7;">
+              <em>Look For The Diamonds</em> by James Slater.
+            </p>
+          </div>
+        `
+      },
+
+      'pop-levi-mrk': {
+        title: 'Pop Levi & MRK',
+        layout: 'single-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">Greece</span>
+              <span class="tag">08:46</span>
+              <span class="tag">Experimental spirit</span>
+              <span class="tag">International perspective</span>
+            </div>
+            <p><strong>Film Title:</strong></p>
+            <p><em>Cheapo Gnostic</em></p>
+            <p>
+              A concise and vivid piece bringing experimental spirit and international perspective to the line-up.
+            </p>
+          </div>
+        `
+      },
+
+      'saul-murphy': {
+        title: 'Saul Murphy',
+        layout: 'single-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">UK</span>
+              <span class="tag">17:49</span>
+              <span class="tag">Place &amp; memory</span>
+              <span class="tag">Local identity</span>
+            </div>
+            <p><strong>Film Title:</strong></p>
+            <p><em>The Liverpool Olympia</em></p>
+            <p>
+              A film rooted in place and cultural memory, connecting local identity with cinematic storytelling.
+            </p>
+          </div>
+        `
+      },
+
+      'venya-krutikov-pablo-sonnaillon': {
+        title: 'Venya Krutikov & Pablo Sonnaillon',
+        layout: 'single-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">International</span>
+              <span class="tag">11:38</span>
+              <span class="tag">Collaboration</span>
+              <span class="tag">Visual experimentation</span>
+            </div>
+            <p><strong>Film Title:</strong></p>
+            <p><em>Crystallisation</em></p>
+            <p>
+              An international collaboration adding visual experimentation and contemporary resonance to the programme.
+            </p>
+          </div>
+        `
+      },
+
+      'christian-bull': {
+        title: 'Christian Bull',
+        layout: 'single-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">UK</span>
+              <span class="tag">Runtime TBC</span>
+              <span class="tag">Festival selection</span>
+            </div>
+            <p><strong>Film Title:</strong></p>
+            <p><em>Constant Parasite</em></p>
+            <p>
+              Included in the festival selection, with final runtime details still to be confirmed.
+            </p>
+          </div>
+        `
+      },
+
+      'silas': {
+        title: 'Silas',
+        layout: 'single-column',
+        body: `
+          <div class="info-text-box">
+            <h4>Film Information</h4>
+            <div class="film-meta">
+              <span class="tag">UK</span>
+              <span class="tag">Runtime TBC</span>
+              <span class="tag">Details forthcoming</span>
+            </div>
+            <p><strong>Film Title:</strong></p>
+            <p><em>Xxx</em></p>
+            <p>
+              A forthcoming programme entry awaiting final title formatting and additional details.
+            </p>
+          </div>
+        `
+      }
+    };
+
+    function openDirectorPanel(directorKey) {
+      const profile = directorProfiles[directorKey];
+      const card = document.querySelector(`.director-card[data-director="${directorKey}"]`);
+
+      if (!profile || !card || !detailPanel || !detailTitle || !detailBody) return;
+
+      activateTab('directors');
+
+      document.querySelectorAll('.director-card[aria-expanded]').forEach(item => {
+        item.setAttribute('aria-expanded', 'false');
+      });
+
+      detailTitle.textContent = profile.title;
+      detailBody.innerHTML = profile.body;
+      detailBody.classList.toggle('single-column', profile.layout === 'single-column');
+      detailPanel.classList.add('active');
+      card.setAttribute('aria-expanded', 'true');
+
+      window.location.hash = directorKey;
+
+      setTimeout(() => {
+        detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function closeDirectorPanel() {
+      if (!detailPanel) return;
+
+      detailPanel.classList.remove('active');
+
+      document.querySelectorAll('.director-card[aria-expanded]').forEach(item => {
+        item.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    document.querySelectorAll('.director-card.clickable[data-director]').forEach(card => {
+      card.addEventListener('click', () => {
+        openDirectorPanel(card.dataset.director);
+      });
+
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openDirectorPanel(card.dataset.director);
+        }
+      });
+    });
+
+    if (detailCloseBtn) {
+      detailCloseBtn.addEventListener('click', closeDirectorPanel);
+    }
+
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      if (directorProfiles[hash]) {
+        openDirectorPanel(hash);
+      } else {
+        activateTab(hash);
+      }
+    }
+  </script>
 </body>
 </html>
