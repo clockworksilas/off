@@ -1112,7 +1112,7 @@
               </div>
             </div>
 
-            <div class="director-card">
+            <div class="director-card clickable" tabindex="0" role="button" aria-controls="director-detail-panel" aria-expanded="false" data-director="james-slater">
               <div class="director-avatar" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
@@ -1120,11 +1120,8 @@
                 </svg>
               </div>
               <h3>James Slater</h3>
-              <div class="director-hidden">
-                <div class="film-title">Look For The Diamonds</div>
-                <p>UK · 12:35</p>
-                <p>A UK short included in the programme for its storytelling energy and emotional texture.</p>
-              </div>
+              <div class="film-title">Look For The Diamonds</div>
+              <p>Click to view film information and director profile.</p>
             </div>
 
             <div class="director-card">
@@ -1311,70 +1308,171 @@
   </div>
 
   <script>
-    const buttons = document.querySelectorAll('.tab-btn');
-    const panels = document.querySelectorAll('.tab-panel');
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
 
-    function activateTab(target) {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      panels.forEach(panel => panel.classList.remove('active'));
+  function activateTab(target) {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    panels.forEach(panel => panel.classList.remove('active'));
 
-      const activeButton = document.querySelector(`.tab-btn[data-tab="${target}"]`);
-      const activePanel = document.getElementById(target);
+    const activeButton = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+    const activePanel = document.getElementById(target);
 
-      if (activeButton && activePanel) {
-        activeButton.classList.add('active');
-        activePanel.classList.add('active');
-      }
+    if (activeButton && activePanel) {
+      activeButton.classList.add('active');
+      activePanel.classList.add('active');
     }
+  }
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const target = button.dataset.tab;
-        activateTab(target);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.tab;
+      activateTab(target);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  const detailPanel = document.getElementById('director-detail-panel');
+  const detailCloseBtn = document.getElementById('detail-close-btn');
+  const detailTitle = document.getElementById('detail-title');
+  const detailBody = document.querySelector('.detail-panel-body');
+
+  const directorProfiles = {
+    'bernadette-mcbride': {
+      title: 'Bernadette McBride',
+      body: `
+        <div class="info-text-box">
+          <h4>Film Information</h4>
+          <div class="film-meta">
+            <span class="tag">Irish-language short film</span>
+            <span class="tag">Aran Islands, Ireland</span>
+            <span class="tag">Climate &amp; memory</span>
+            <span class="tag">10 festival selections</span>
+          </div>
+          <p><strong>Film Synopsis:</strong></p>
+          <p>
+            <em>Sea Monster (Ollphéist Mhara)</em> is a haunting Irish-language short film written and directed by Bernadette McBride, adapted from her short story. Set on the Aran Islands, Ireland, the film follows Nora (Frances McManus) — a retired forensic ecologist whose fading memory may hold the key to solving a forgotten environmental crime responsible for climate change — but is it too late?
+          </p>
+          <p>
+            Translated and narrated by Inis Oírr novelist Máire Uí Dhufaigh, <em>Sea Monster (Ollphéist Mhara)</em> explores connections between the erosion of memory, language, and landscape.
+          </p>
+          <p>
+            <em>Sea Monster (Ollphéist Mhara)</em> has been selected for ten international film festivals and screenings since its festival run started in the summer of 2025.
+          </p>
+        </div>
+
+        <div class="video-panel">
+          <h4>Watch the Trailer</h4>
+          <div class="video-embed">
+            <iframe
+              src="https://drive.google.com/file/d/1K7q7rAfKSEQ66Ld2K_zkWWBA_rOWr-4N/preview"
+              title="Sea Monster trailer"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p style="margin-top: 14px; font-size: 1rem; color: #e6fff7;">
+            Trailer for <em>Sea Monster (Ollphéist Mhara)</em>.
+          </p>
+        </div>
+      `
+    },
+
+    'james-slater': {
+      title: 'James Slater',
+      body: `
+        <div class="info-text-box">
+          <h4>Film Information</h4>
+          <div class="film-meta">
+            <span class="tag">UK short film</span>
+            <span class="tag">12:35</span>
+            <span class="tag">Documentary</span>
+            <span class="tag">Resilience &amp; survival</span>
+          </div>
+
+          <p><strong>Film Title:</strong></p>
+          <p><em>Look For The Diamonds</em></p>
+
+          <p><strong>Film Synopsis:</strong></p>
+          <p>
+            Joel Goldberg has 4 kidneys but none of them work. He has to dialyse every day to survive. With an inspirational outlook on life, <em>Look For The Diamonds</em> shows that despite his chronic condition, Joel isn’t just surviving, he’s thriving.
+          </p>
+        </div>
+
+        <div class="info-text-box">
+          <h4>Director Bio</h4>
+          <p>
+            I’m James. Born in Bradford and now living in London via the fine cities of Liverpool and Berlin.
+          </p>
+          <p>
+            After an unsuccessful stint as a pizza waiter, I turned to directing out of desperation, starting with music videos for bands in the Liverpool music scene alongside my mini-DV-wielding sidekick, Neil. Our breakthrough came with The Coral, directing videos like <em>In The Morning</em> and <em>Pass It On</em>, among others.
+          </p>
+          <p>
+            Since then, I’ve built a career directing music videos, commercials, and documentaries in both the UK and Germany, where I lived for several years. My work has earned industry recognition, including Vimeo Staff Picks, NME’s Video of the Year for Jamie T’s <em>Zombie</em>, Raindance Video of the Year for Stealing Sheep’s <em>Not Real</em>, as well as numerous nominations for Brit Awards and UKMVAs, and several festival prizes.
+          </p>
+          <p>
+            In 2022, I founded Zomdic Films, focusing primarily on documentary, narrative, and commercial filmmaking. Most recently, I directed <em>Dreaming of You</em>, a feature documentary that serves as a coming-of-age story centered on The Coral.
+          </p>
+        </div>
+      `
+    }
+  };
+
+  function openDirectorPanel(directorKey) {
+    const profile = directorProfiles[directorKey];
+    const card = document.querySelector(`.director-card[data-director="${directorKey}"]`);
+
+    if (!profile || !card || !detailPanel || !detailTitle || !detailBody) return;
+
+    activateTab('directors');
+
+    document.querySelectorAll('.director-card[aria-expanded]').forEach(item => {
+      item.setAttribute('aria-expanded', 'false');
     });
 
-    const detailPanel = document.getElementById('director-detail-panel');
-    const detailCloseBtn = document.getElementById('detail-close-btn');
-    const bernadetteCard = document.querySelector('.director-card[data-director="bernadette-mcbride"]');
+    detailTitle.textContent = profile.title;
+    detailBody.innerHTML = profile.body;
+    detailPanel.classList.add('active');
+    card.setAttribute('aria-expanded', 'true');
 
-    function openBernadettePanel() {
-      activateTab('directors');
-      detailPanel.classList.add('active');
-      bernadetteCard.setAttribute('aria-expanded', 'true');
-      setTimeout(() => {
-        detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
+    setTimeout(() => {
+      detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
 
-    function closeBernadettePanel() {
-      detailPanel.classList.remove('active');
-      bernadetteCard.setAttribute('aria-expanded', 'false');
-    }
+  function closeDirectorPanel() {
+    detailPanel.classList.remove('active');
 
-    if (bernadetteCard) {
-      bernadetteCard.addEventListener('click', openBernadettePanel);
-      bernadetteCard.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          openBernadettePanel();
-        }
-      });
-    }
+    document.querySelectorAll('.director-card[aria-expanded]').forEach(item => {
+      item.setAttribute('aria-expanded', 'false');
+    });
+  }
 
-    if (detailCloseBtn) {
-      detailCloseBtn.addEventListener('click', closeBernadettePanel);
-    }
+  document.querySelectorAll('.director-card.clickable[data-director]').forEach(card => {
+    card.addEventListener('click', () => {
+      openDirectorPanel(card.dataset.director);
+    });
 
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      if (hash === 'bernadette-mcbride') {
-        openBernadettePanel();
-      } else {
-        activateTab(hash);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDirectorPanel(card.dataset.director);
       }
+    });
+  });
+
+  if (detailCloseBtn) {
+    detailCloseBtn.addEventListener('click', closeDirectorPanel);
+  }
+
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    if (directorProfiles[hash]) {
+      openDirectorPanel(hash);
+    } else {
+      activateTab(hash);
     }
-  </script>
+  }
+</script>
 </body>
 </html>
